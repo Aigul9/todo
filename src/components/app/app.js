@@ -3,7 +3,9 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter';
+import ItemAddForm from '../item-add-form';
 import './app.css';
+import nextId from "react-id-generator";
 
 export default class App extends Component {
 
@@ -24,6 +26,24 @@ export default class App extends Component {
         });
     };
 
+    addItem = (label) => {
+        const newItem = {
+            label,
+            important: false,
+            id: nextId()
+        };
+
+        console.log(label);
+
+        this.setState(({todoData}) => {
+            return {
+                todoData: [...todoData, newItem]
+            }
+        });
+
+        console.log(this.state);
+    };
+
     render() {
         return (
             <div className="todo-app">   
@@ -33,6 +53,7 @@ export default class App extends Component {
                     <ItemStatusFilter/>
                 </div>
                 <TodoList todos={this.state.todoData} onDeleted={this.deleteItem}/>
+                <ItemAddForm onAdd={this.addItem}/>
             </div>
         );
     }
