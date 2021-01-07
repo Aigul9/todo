@@ -36,13 +36,15 @@ export default class App extends Component {
     };
 
     addItem = (label) => {
-        const newItem = this.createTodoItem(label);
+        if (label) {
+            const newItem = this.createTodoItem(label);
 
-        this.setState(({todoData}) => {
-            return {
-                todoData: [...todoData, newItem]
-            }
-        });
+            this.setState(({todoData}) => {
+                return {
+                    todoData: [...todoData, newItem]
+                }
+            });
+        }
     };
 
     getElementByIndex(arr, id) {
