@@ -1,3 +1,3 @@
 # todo
 
-Made during the course in Udemy: https://www.udemy.com/course/pro-react-redux/
+Made during the course on Udemy: https://www.udemy.com/course/pro-react-redux/
